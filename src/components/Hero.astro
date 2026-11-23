@@ -1,0 +1,58 @@
+---
+import Icon from './Icon.astro';
+import Demo from './Demo.astro';
+---
+
+<section id="top" class="relative overflow-hidden">
+  <!-- soft color wash behind the hero -->
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute -top-40 right-[-10%] h-[560px] w-[560px] rounded-full bg-accent/20 blur-3xl dark:bg-accent/12"></div>
+    <div class="absolute top-56 left-[-15%] h-[420px] w-[420px] rounded-full bg-accent/10 blur-3xl dark:bg-accent/8"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24 md:pb-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 text-xs font-medium text-ink-muted dark:border-line-dark dark:bg-card-dark dark:text-ink-muted-dark">
+        <Icon name="image" size={14} class="text-accent" />
+        Free script for Autodesk 3ds Max
+      </p>
+
+      <h1 class="text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
+        Client comments,<br />right on the viewport.
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted text-pretty sm:text-xl dark:text-ink-muted-dark">
+        Backdrop puts the render you delivered behind the camera viewport and the client's comments
+        from Dropbox or Google Drive on top of it, as numbered frames. You fix things where they were
+        asked for, without switching windows to check what “a bit lower” was about.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="#download"
+          class="inline-flex h-12 items-center gap-2.5 rounded-full bg-accent px-6 text-base font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent-deep"
+        >
+          <Icon name="download" size={18} />
+          Download .mzp
+        </a>
+        <a
+          href="https://github.com/Shimodos/Backdrop"
+          class="inline-flex h-12 items-center gap-2 rounded-full px-5 text-base font-medium text-ink-muted transition hover:text-ink dark:text-ink-muted-dark dark:hover:text-ink-dark"
+        >
+          <Icon name="github" size={18} />
+          View on GitHub
+        </a>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-ink-muted dark:text-ink-muted-dark">
+        <li class="flex items-center gap-1.5"><Icon name="check" size={16} class="text-accent" /> Free and open source</li>
+        <li class="flex items-center gap-1.5"><Icon name="check" size={16} class="text-accent" /> One Python file, no plugins</li>
+        <li class="flex items-center gap-1.5"><Icon name="check" size={16} class="text-accent" /> Dropbox and Google Drive comments</li>
+      </ul>
+    </div>
+
+    <div class="mt-16">
+      <Demo />
+    </div>
+  </div>
+</section>

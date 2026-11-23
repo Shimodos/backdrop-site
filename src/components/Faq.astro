@@ -1,0 +1,65 @@
+---
+const faq = [
+  {
+    q: 'Which versions of 3ds Max does it run on?',
+    a: 'It is tested in 3ds Max 2024 and 2026. The script works with both Qt bindings found in those releases, PySide2 and PySide6. Other versions have not been tested yet; if you try one, an issue on GitHub with the result is welcome.',
+  },
+  {
+    q: 'How does it know which image belongs to the scene?',
+    a: 'By name. It takes the file name of the render output (Render Setup → Common → Render Output) and looks for an image with that name in the folder you chose. Pulze Scene Manager writes that field when a setup is activated, so the image follows the active setup. Without Scene Manager, a click on a preview shows any image by hand.',
+  },
+  {
+    q: 'Does it change my scene or my renders?',
+    a: 'No. The image is shown as the viewport background of the camera view and the frames are painted by a separate transparent layer over it. Nothing is added to the scene file and nothing is rendered.',
+  },
+  {
+    q: 'What does it need from Google, and what can it see?',
+    a: 'To fetch comments from Google Drive you sign in to Google in your own browser. The panel asks for read-only access to Drive, reads the list of images of the folder you linked and their comments, and nothing else. It needs an OAuth client of your own, made once in Google Cloud Console for free; the guide in the repository walks through it. If you would rather not sign in, comments downloaded from Dropbox work without any account.',
+  },
+  {
+    q: 'What is sent to DeepL?',
+    a: 'Only the text of the comments written in Latin letters, each one once, with your own API key; the free DeepL API plan is enough. Translations are kept on your computer. Without a key nothing is sent and the comments are shown as written.',
+  },
+  {
+    q: 'The frames are in the wrong places. Why?',
+    a: 'A comment is placed as a share of the image, so the image the client commented on must be the same picture as the one in your folder: same crop, same camera. If the comments were made on an older version of the render, the frames follow that version.',
+  },
+  {
+    q: 'How do I update or remove it?',
+    a: 'To update, drop the new .mzp into 3ds Max: it replaces the old script and the toolbar button keeps working. To remove, delete backdrop.py from the python folder inside your 3ds Max user scripts folder and remove the button from the toolbar.',
+  },
+  {
+    q: 'Is it really free?',
+    a: 'Yes. MIT license, source on GitHub, no account of ours and no server of ours. The only network calls are the ones you switch on: DeepL for translation and Google for Drive comments.',
+  },
+];
+---
+
+<section id="faq" class="border-t border-line bg-card dark:border-line-dark dark:bg-card-dark">
+  <div class="mx-auto max-w-3xl px-6 py-24">
+    <p class="text-sm font-semibold tracking-wide text-accent-deep uppercase dark:text-accent">FAQ</p>
+    <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Questions</h2>
+
+    <div class="mt-10 divide-y divide-line border-y border-line dark:divide-line-dark dark:border-line-dark">
+      {faq.map((item) => (
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 font-medium marker:hidden">
+            {item.q}
+            <span class="text-xl leading-none text-ink-muted transition group-open:rotate-45 dark:text-ink-muted-dark" aria-hidden="true">+</span>
+          </summary>
+          <p class="mt-3 leading-relaxed text-ink-muted text-pretty dark:text-ink-muted-dark">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+})} />

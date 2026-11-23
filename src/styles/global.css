@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+
+  /* The panel's own accent: the cyan of its buttons and of the app icon */
+  --color-accent: #12b3d6;
+  --color-accent-soft: #d8f4fa;
+  --color-accent-deep: #0b8fb0;
+
+  --color-ink: #151a22;
+  --color-ink-muted: #5c6370;
+  --color-paper: #f6f7f9;
+  --color-card: #ffffff;
+  --color-line: #e5e7eb;
+
+  --color-ink-dark: #ededf0;
+  --color-ink-muted-dark: #9aa1ad;
+  --color-paper-dark: #0f1115;
+  --color-card-dark: #181b21;
+  --color-line-dark: #272b33;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink antialiased dark:bg-paper-dark dark:text-ink-dark;
+}
+
+/* ---- carousel of panel states (see components/Demo.astro) ---- */
+
+/* Slides glide to their place in the ring; position, size and dimming move together. */
+.demo-slide {
+  transform-origin: center;
+  transition:
+    transform 900ms cubic-bezier(0.22, 0.8, 0.2, 1),
+    opacity 900ms cubic-bezier(0.22, 0.8, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+/* While a finger or the mouse holds the ring it follows 1:1, without easing. */
+.demo-stage.is-dragging .demo-slide {
+  transition: none;
+}
+
+.demo-dot {
+  transition: width 300ms ease;
+}
+
+.demo-dot.is-on {
+  width: 1.75rem;
+}
+
+/* The active dot is a small progress bar: it fills while its slide is in front. */
+.demo-dot-fill {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.demo-dot.is-on .demo-dot-fill {
+  transform: scaleX(1);
+}
+
+.demo.is-playing .demo-dot.is-on .demo-dot-fill {
+  animation: demo-fill var(--demo-interval, 2600ms) linear both;
+}
+
+@keyframes demo-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Reduced motion: nothing travels. Only the front slide is shown, and slides
+   cross-fade in place. */
+@media (prefers-reduced-motion: reduce) {
+  .demo-slide {
+    transform: none !important;
+    transition: opacity 500ms ease;
+  }
+
+  .demo-slide[aria-hidden="true"] {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  .demo-dot {
+    transition: none;
+  }
+
+  .demo.is-playing .demo-dot.is-on .demo-dot-fill {
+    animation: none;
+  }
+}

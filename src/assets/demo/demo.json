@@ -1,0 +1,58 @@
+{
+  "width": 1028,
+  "height": 696,
+  "themes": {
+    "dark": [
+      {
+        "image": "dark-00.png",
+        "caption": "The delivered render behind the camera viewport, the comments on top"
+      },
+      {
+        "image": "dark-01.png",
+        "caption": "Pick a comment: its frame lights up with the text"
+      },
+      {
+        "image": "dark-02.png",
+        "caption": "Comments translated with DeepL, the original stays underneath"
+      },
+      {
+        "image": "dark-03.png",
+        "caption": "Tick a comment off when it is done; the badge counts what is left"
+      },
+      {
+        "image": "dark-04.png",
+        "caption": "Activate another setup: its image and its comments come up"
+      },
+      {
+        "image": "dark-05.png",
+        "caption": "Comments from Dropbox files or straight from Google Drive"
+      }
+    ],
+    "light": [
+      {
+        "image": "light-00.png",
+        "caption": "The delivered render behind the camera viewport, the comments on top"
+      },
+      {
+        "image": "light-01.png",
+        "caption": "Pick a comment: its frame lights up with the text"
+      },
+      {
+        "image": "light-02.png",
+        "caption": "Comments translated with DeepL, the original stays underneath"
+      },
+      {
+        "image": "light-03.png",
+        "caption": "Tick a comment off when it is done; the badge counts what is left"
+      },
+      {
+        "image": "light-04.png",
+        "caption": "Activate another setup: its image and its comments come up"
+      },
+      {
+        "image": "light-05.png",
+        "caption": "Comments from Dropbox files or straight from Google Drive"
+      }
+    ]
+  }
+}

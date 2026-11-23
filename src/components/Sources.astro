@@ -1,0 +1,95 @@
+---
+import Icon from './Icon.astro';
+import Shot from './Shot.astro';
+import menu from '../assets/shots/drive-menu.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const guide = 'https://github.com/Shimodos/Backdrop/blob/main/docs/google-drive.md';
+
+const sources = [
+  {
+    title: 'Dropbox',
+    steps: [
+      'Open the image in Dropbox, then Comments → ⋯ → Download comments.',
+      'Leave the file in Downloads, put it next to the images, or choose a folder for comment files.',
+      'The panel finds it by the name of the image. Of several downloads the newest is used.',
+    ],
+  },
+  {
+    title: 'Google Drive',
+    steps: [
+      'Once per computer: make a free OAuth client in Google Cloud Console and give its file to the panel.',
+      'Per scene: paste the link of the Drive folder, or of one image.',
+      'Sign in to Google in your browser the first time. The comments of every image are fetched; one click refreshes them later.',
+    ],
+  },
+];
+---
+
+<section id="sources" class="border-t border-line dark:border-line-dark">
+  <div class="mx-auto max-w-6xl px-6 py-24">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold tracking-wide text-accent-deep uppercase dark:text-accent">Comments</p>
+      <h2 class="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">From Dropbox files or straight from Google Drive</h2>
+      <p class="mt-4 text-lg text-ink-muted text-pretty dark:text-ink-muted-dark">
+        A scene shows the comments of one service at a time, and the folder menu switches between them.
+        A comment finds its image by the file name.
+      </p>
+    </div>
+
+    <div class="mt-14 grid items-start gap-12 lg:grid-cols-[1.5fr_1fr]">
+      <figure>
+        <img
+          src={`${base}/sources.gif`}
+          alt="Switching the comments of a scene from Dropbox files to Google Drive in the folder menu"
+          width="1028"
+          height="696"
+          loading="lazy"
+          class="h-auto w-full rounded-2xl ring-1 ring-black/8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.3)] dark:ring-white/10 dark:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)]"
+        />
+        <figcaption class="mt-4 text-sm text-ink-muted dark:text-ink-muted-dark">
+          The same image with its Dropbox comments, then with the ones from Google Drive.
+        </figcaption>
+      </figure>
+
+      <div class="space-y-6">
+        {sources.map((s) => (
+          <div class="rounded-2xl bg-card p-6 ring-1 ring-line dark:bg-card-dark dark:ring-line-dark">
+            <h3 class="font-semibold tracking-tight">{s.title}</h3>
+            <ol class="mt-3 space-y-2 text-[15px] leading-relaxed text-ink-muted dark:text-ink-muted-dark">
+              {s.steps.map((step, i) => (
+                <li class="flex gap-3">
+                  <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent-soft text-xs font-semibold text-accent-deep dark:bg-accent/15 dark:text-accent">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))}
+        <a
+          href={guide}
+          class="inline-flex items-center gap-2 text-[15px] font-medium text-accent-deep underline decoration-accent/40 underline-offset-4 transition hover:decoration-accent dark:text-accent"
+        >
+          <Icon name="book" size={18} />
+          Google Drive, step by step
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 grid items-center gap-10 rounded-3xl bg-card p-8 ring-1 ring-line md:grid-cols-[auto_1fr] dark:bg-card-dark dark:ring-line-dark">
+      <Shot src={menu} alt="The folder menu of the panel with Google Drive set up" width={300} />
+      <div>
+        <h3 class="text-xl font-semibold tracking-tight">Everything in one menu</h3>
+        <p class="mt-3 max-w-xl leading-relaxed text-ink-muted text-pretty dark:text-ink-muted-dark">
+          The folder button holds it all: where the images are, where the downloaded comment files are, the
+          Google Drive link, and whose comments the scene shows. Fetching from Drive switches to Drive;
+          removing the link or signing out of Google switches back to the Dropbox files.
+        </p>
+        <p class="mt-3 max-w-xl leading-relaxed text-ink-muted text-pretty dark:text-ink-muted-dark">
+          The panel asks Google for read-only access and reads the list of images of the linked folder and
+          their comments. Nothing passes through a server of ours: there is none.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

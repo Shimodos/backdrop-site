@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Sources from '../components/Sources.astro';
+import Themes from '../components/Themes.astro';
+import Install from '../components/Install.astro';
+import Faq from '../components/Faq.astro';
+import Download from '../components/Download.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Backdrop — client comments on the 3ds Max viewport"
+  description="A free, open-source panel for Autodesk 3ds Max: the delivered render behind the camera viewport and the client's comments from Dropbox or Google Drive as numbered frames on top of it, with a checklist and DeepL translation."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <Features />
+    <Sources />
+    <Themes />
+    <Install />
+    <Faq />
+    <Download />
+  </main>
+  <Footer />
+</Layout>
