@@ -14,8 +14,6 @@ rm list.txt
 Links sit at the end of each post. Both networks tend to show posts with links to fewer
 people, so the X thread keeps the first post free of links and puts them in the reply.
 
-Nothing below is published yet.
-
 ---
 
 ## X (Twitter)
@@ -24,6 +22,8 @@ A post is limited to 280 characters, and any link counts as 23. The list uses pl
 hyphens on purpose: X counts a "•" bullet as two characters.
 
 ### Post (with promo.mp4)
+
+Published 2026-11-23: https://x.com/demchenko_a/status/2124916383624331384
 
 ```text
 I made a free panel for 3ds Max that puts client comments right on the viewport.
@@ -37,6 +37,8 @@ Open source, one Python file.
 
 ### Reply 1
 
+Published 2026-11-23: https://x.com/demchenko_a/status/2124916524976832898
+
 ```text
 It follows the scene: activate another setup and its image and comments come up. Tick a comment off when it is done.
 
@@ -46,7 +48,7 @@ Code (MIT): https://github.com/Shimodos/Backdrop
 #3dsmax #archviz #python #opensource
 ```
 
-### Reply 2 (optional, for the curious)
+### Reply 2 (optional, for the curious) — not posted
 
 ```text
 The frames are painted by a transparent, click-through Qt window kept over the camera viewport, so they never get in the way of selecting things.
@@ -65,6 +67,10 @@ one attachment: add the video first (the media button, then Next) and type the t
 it, so no card appears.
 
 ### Post (with promo.mp4)
+
+Published 2026-11-23 (Oleksiy Demchenko, the 3D profile): https://www.linkedin.com/feed/update/urn:li:activity:7530682680636641280/
+
+Not posted on the developer profile (Aleksey Demchenko).
 
 ```text
 A client marks up a render in Dropbox: "lower", "warmer", "move this closer to the wall". Then I sit in 3ds Max with a browser tab next to it, trying to work out which lamp "this" was. So I wrote a panel that brings the comments to the viewport.
