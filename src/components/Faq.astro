@@ -6,11 +6,15 @@ const faq = [
   },
   {
     q: 'How does it know which image belongs to the scene?',
-    a: 'By name. It takes the file name of the render output (Render Setup → Common → Render Output) and looks for an image with that name in the folder you chose. Pulze Scene Manager writes that field when a setup is activated, so the image follows the active setup. Without Scene Manager, a click on a preview shows any image by hand.',
+    a: 'By name. It looks in the folder you chose for an image named like the file of the render output (Render Setup → Common → Render Output), then like the output file of a Batch Render view of the camera in the viewport, then like that camera. Pulze Scene Manager writes the render output when a setup is activated, so with it the image follows the active setup; without it, name the cameras like the images or keep the names in Batch Render.',
+  },
+  {
+    q: 'Do I need Pulze Scene Manager?',
+    a: 'No. Without it the image follows the camera in the viewport, and a click on a preview puts the camera of that image in the viewport. With Scene Manager 2 the image follows the active setup, and a click takes the camera, frame, layers, render output file and resolution of the setup named like the image, read from the saved scene file. Scene Manager itself is not told about the click: its list stays on the setup chosen there.',
   },
   {
     q: 'Does it change my scene or my renders?',
-    a: 'No. The image is shown as the viewport background of the camera view and the frames are painted by a separate transparent layer over it. Nothing is added to the scene file and nothing is rendered.',
+    a: 'Showing the image and the comments changes nothing: the image is the viewport background of the camera view and the frames are painted by a separate transparent layer over it. Nothing is added to the scene file and nothing is rendered. A click on a preview does go to that shot: it changes the camera in the viewport and, with a Scene Manager setup, the time slider, the visibility of the layers of that setup, the render output file and the resolution, the same things activating the setup changes.',
   },
   {
     q: 'What does it need from Google, and what can it see?',
